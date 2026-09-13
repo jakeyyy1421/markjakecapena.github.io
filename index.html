@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mark Jake Capeña | Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* =========================
+       RESET
+    ========================= */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #f7f5f0;
+      --card: #fffefa;
+      --dark: #1e1e1e;
+      --text: #4f4d49;
+      --muted: #858078;
+      --line: #e4dfd6;
+      --accent: #b8a58a;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(184,165,138,.15),
+          transparent 25%
+        ),
+        radial-gradient(
+          circle at 90% 80%,
+          rgba(0,0,0,.04),
+          transparent 25%
+        );
+    }
+
+    /* =========================
+       NAVBAR
+    ========================= */
+
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 90%;
+      max-width: 1050px;
+
+      padding: 14px 24px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 50px;
+
+      z-index: 1000;
+
+      box-shadow:
+        0 10px 35px rgba(0,0,0,.04);
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    nav a {
+      position: relative;
+      color: #555;
+      font-size: 13px;
+      font-weight: 500;
+      transition: .3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+
+      width: 0;
+      height: 1px;
+
+      background: var(--dark);
+
+      transition: .3s ease;
+    }
+
+    nav a:hover {
+      color: var(--dark);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      padding: 140px 20px 100px;
+
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hello {
+      font-size: 12px;
+      letter-spacing: 5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(60px, 11vw, 125px);
+
+      line-height: .9;
+
+      font-weight: 600;
+
+      letter-spacing: -5px;
+
+      margin-bottom: 35px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .hero h2 {
+      font-size: 16px;
+      font-weight: 500;
+
+      color: var(--text);
+
+      letter-spacing: 1px;
+
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: auto;
+
+      color: var(--muted);
+
+      font-size: 15px;
+    }
+
+    /* =========================
+       BUTTON
+    ========================= */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+
+      margin-top: 35px;
+
+      padding: 14px 25px;
+
+      border: 1px solid var(--dark);
+      border-radius: 50px;
+
+      font-size: 13px;
+      font-weight: 500;
+
+      transition: .35s ease;
+    }
+
+    .btn:hover {
+      background: var(--dark);
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       SCROLL INDICATOR
+    ========================= */
+
+    .scroll {
+      position: absolute;
+
+      bottom: 35px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      font-size: 10px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+
+      color: var(--muted);
+    }
+
+    .scroll::after {
+      content: "";
+
+      display: block;
+
+      width: 1px;
+      height: 35px;
+
+      background: var(--accent);
+
+      margin: 10px auto 0;
+    }
+
+    /* =========================
+       GENERAL SECTION
+    ========================= */
+
+    section {
+      padding: 120px 8%;
+    }
+
+    .section-header {
+      max-width: 900px;
+      margin: 0 auto 55px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+
+      font-size: 11px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+
+      font-size: clamp(40px, 6vw, 65px);
+
+      line-height: 1;
+
+      font-weight: 600;
+
+      letter-spacing: -2px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+
+      margin-top: 15px;
+
+      font-size: 14px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about-wrapper {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .about-content {
+      display: grid;
+
+      grid-template-columns: 1fr 1.5fr;
+
+      gap: 70px;
+
+      align-items: start;
+    }
+
+    .about-number {
+      font-family: "Playfair Display", serif;
+
+      font-size: 100px;
+
+      line-height: 1;
+
+      color: var(--accent);
+
+      opacity: .65;
+    }
+
+    .about-text p {
+      color: var(--text);
+
+      font-size: 16px;
+
+      margin-bottom: 20px;
+    }
+
+    .about-text strong {
+      color: var(--dark);
+    }
+
+    /* =========================
+       SKILLS
+    ========================= */
+
+    .skills-section {
+      background: #eeece6;
+    }
+
+    .skills-container {
+      max-width: 1000px;
+
+      margin: auto;
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .skill-card {
+      position: relative;
+
+      padding: 40px 30px;
+
+      min-height: 250px;
+
+      background: var(--card);
+
+      border: 1px solid var(--line);
+
+      border-radius: 24px;
+
+      overflow: hidden;
+
+      transition: .4s ease;
+    }
+
+    .skill-card::before {
+      content: "";
+
+      display: block;
+
+      width: 35px;
+      height: 1px;
+
+      background: var(--accent);
+
+      margin-bottom: 30px;
+
+      transition: .4s ease;
+    }
+
+    .skill-number {
+      position: absolute;
+
+      top: 25px;
+      right: 25px;
+
+      font-family: "Playfair Display", serif;
+
+      font-size: 18px;
+
+      color: var(--accent);
+    }
+
+    .skill-card h3 {
+      font-family: "Playfair Display", serif;
+
+      font-size: 25px;
+
+      margin-bottom: 12px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .skill-card:hover {
+      background: var(--dark);
+
+      color: white;
+
+      transform: translateY(-8px);
+
+      box-shadow: 0 20px 50px rgba(0,0,0,.12);
+    }
+
+    .skill-card:hover p {
+      color: #bbb;
+    }
+
+    .skill-card:hover::before {
+      background: var(--accent);
+
+      width: 60px;
+    }
+
+    /* =========================
+       PROJECTS
+    ========================= */
+
+    .projects-wrapper {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .project {
+      display: grid;
+
+      grid-template-columns: 90px 1fr auto;
+
+      gap: 30px;
+
+      align-items: center;
+
+      padding: 30px 0;
+
+      border-top: 1px solid var(--line);
+
+      transition: .3s ease;
+    }
+
+    .project:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-number {
+      font-family: "Playfair Display", serif;
+
+      color: var(--accent);
+
+      font-size: 18px;
+    }
+
+    .project h3 {
+      font-family: "Playfair Display", serif;
+
+      font-size: 25px;
+
+      font-weight: 500;
+
+      margin-bottom: 4px;
+    }
+
+    .project p {
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .project-arrow {
+      font-size: 25px;
+
+      transition: .3s ease;
+    }
+
+    .project:hover {
+      padding-left: 15px;
+    }
+
+    .project:hover .project-arrow {
+      transform: translateX(8px);
+    }
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact {
+      text-align: center;
+
+      background: var(--dark);
+
+      color: white;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: "";
+
+      position: absolute;
+
+      width: 500px;
+      height: 500px;
+
+      border-radius: 50%;
+
+      border: 1px solid rgba(255,255,255,.08);
+
+      top: -250px;
+      right: -150px;
+    }
+
+    .contact .eyebrow {
+      color: var(--accent);
+    }
+
+    .contact .section-title {
+      color: white;
+    }
+
+    .contact-text {
+      max-width: 550px;
+
+      margin: 20px auto;
+
+      color: #aaa;
+
+      font-size: 14px;
+    }
+
+    .contact-btn {
+      display: inline-block;
+
+      margin-top: 25px;
+
+      padding: 15px 30px;
+
+      background: white;
+
+      color: var(--dark);
+
+      border-radius: 50px;
+
+      font-size: 13px;
+
+      transition: .3s ease;
+    }
+
+    .contact-btn:hover {
+      background: var(--accent);
+
+      color: white;
+
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 25px;
+
+      text-align: center;
+
+      background: var(--dark);
+
+      border-top: 1px solid rgba(255,255,255,.08);
+
+      color: #777;
+
+      font-size: 11px;
+
+      letter-spacing: 1px;
+    }
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(30px);
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 750px) {
+
+      nav {
+        top: 12px;
+
+        width: 94%;
+
+        padding: 12px 18px;
+      }
+
+      nav ul {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 10px;
+      }
+
+      .logo {
+        font-size: 15px;
+      }
+
+      .hero {
+        padding-top: 130px;
+      }
+
+      .hero h1 {
+        font-size: clamp(55px, 18vw, 85px);
+
+        letter-spacing: -4px;
+      }
+
+      section {
+        padding: 90px 6%;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+      }
+
+      .about-number {
+        font-size: 70px;
+      }
+
+      .skills-container {
+        grid-template-columns: 1fr;
+      }
+
+      .project {
+        grid-template-columns: 45px 1fr auto;
+
+        gap: 15px;
+      }
+
+      .project h3 {
+        font-size: 20px;
+      }
+
+    }
+
+    @media (max-width: 480px) {
+
+      nav ul {
+        gap: 9px;
+      }
+
+      nav a {
+        font-size: 9px;
+      }
+
+      .hero h1 {
+        font-size: 60px;
+      }
+
+      .section-title {
+        font-size: 42px;
+      }
+
+      .project {
+        grid-template-columns: 35px 1fr;
+      }
+
+      .project-arrow {
+        display: none;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
+
+  <nav>
+
+    <div class="logo">
+      MJC.
+    </div>
+
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO
+  ========================= -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content reveal">
+
+      <div class="hello">
+        Hello, I'm
+      </div>
+
+      <h1>
+        Mark Jake<br>
+        <span>Capeña.</span>
+      </h1>
+
+      <h2>
+        Project Engineer · Computer Engineer
+      </h2>
+
+      <p>
+        A BS Computer Engineering graduate exploring
+        opportunities as a Virtual Assistant, with a strong
+        willingness to learn, improve, and take on new challenges.
+      </p>
+
+      <a href="#about" class="btn">
+        Explore My Portfolio
+        <span>↓</span>
+      </a>
+
+    </div>
+
+    <div class="scroll">
+      Scroll
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
+  <section id="about">
+
+    <div class="about-wrapper reveal">
+
+      <div class="section-header">
+
+        <div class="eyebrow">
+          01 — About
+        </div>
+
+        <h2 class="section-title">
+          A little about me.
+        </h2>
+
+        <p class="section-subtitle">
+          Who I am and what I'm working toward.
+        </p>
+
+      </div>
+
+
+      <div class="about-content">
+
+        <div class="about-number">
+          01
+        </div>
+
+        <div class="about-text">
+
+          <p>
+            I am <strong>Mark Jake Capeña</strong>, a Project
+            Engineer and BS Computer Engineering graduate
+            with an interest in technology, organization,
+            and digital work.
+          </p>
+
+          <p>
+            I am currently exploring opportunities as a
+            <strong>Virtual Assistant</strong> and continuously
+            developing my skills in documentation, data entry,
+            technical work, and digital tools.
+          </p>
+
+          <p>
+            As a beginner in the VA field, I bring a strong
+            willingness to learn, adapt, and improve. I believe
+            that every new task is an opportunity to gain
+            experience and become better at what I do.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SKILLS
+  ========================= -->
+
+  <section class="skills-section" id="skills">
+
+    <div class="section-header reveal">
+
+      <div class="eyebrow">
+        02 — Skills
+      </div>
+
+      <h2 class="section-title">
+        What I can do.
+      </h2>
+
+      <p class="section-subtitle">
+        Skills I currently work with and continue to develop.
+      </p>
+
+    </div>
+
+
+    <div class="skills-container">
+
+      <div class="skill-card reveal">
+
+        <div class="skill-number">
+          01
+        </div>
+
+        <h3>
+          Data Entry
+        </h3>
+
+        <p>
+          Organized and accurate handling of information,
+          spreadsheets, digital records, and repetitive
+          administrative tasks.
+        </p>
+
+      </div>
+
+
+      <div class="skill-card reveal">
+
+        <div class="skill-number">
+          02
+        </div>
+
+        <h3>
+          Documentation
+        </h3>
+
+        <p>
+          Creating, organizing, formatting, and maintaining
+          clear and structured documents and information.
+        </p>
+
+      </div>
+
+
+      <div class="skill-card reveal">
+
+        <div class="skill-number">
+          03
+        </div>
+
+        <h3>
+          CAD
+        </h3>
+
+        <p>
+          Computer-aided design and technical drawing skills
+          developed through my engineering background.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       PROJECTS
+  ========================= -->
+
+  <section id="projects">
+
+    <div class="projects-wrapper">
+
+      <div class="section-header reveal">
+
+        <div class="eyebrow">
+          03 — Selected Work
+        </div>
+
+        <h2 class="section-title">
+          Projects.
+        </h2>
+
+        <p class="section-subtitle">
+          A collection of work, practice projects, and
+          experiences that I continue to build.
+        </p>
+
+      </div>
+
+
+      <div class="project reveal">
+
+        <div class="project-number">
+          01
+        </div>
+
+        <div>
+
+          <h3>
+            Personal Portfolio
+          </h3>
+
+          <p>
+            Personal website · Web Design · 2026
+          </p>
+
+        </div>
+
+        <div class="project-arrow">
+          ↗
+        </div>
+
+      </div>
+
+
+      <div class="project reveal">
+
+        <div class="project-number">
+          02
+        </div>
+
+        <div>
+
+          <h3>
+            CAD & Technical Design
+          </h3>
+
+          <p>
+            Engineering · Technical Drawing
+          </p>
+
+        </div>
+
+        <div class="project-arrow">
+          ↗
+        </div>
+
+      </div>
+
+
+      <div class="project reveal">
+
+        <div class="project-number">
+          03
+        </div>
+
+        <div>
+
+          <h3>
+            Virtual Assistant Samples
+          </h3>
+
+          <p>
+            Data Entry · Documentation · Administrative Work
+          </p>
+
+        </div>
+
+        <div class="project-arrow">
+          ↗
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       CONTACT
+  ========================= -->
+
+  <section class="contact" id="contact">
+
+    <div class="reveal">
+
+      <div class="eyebrow">
+        04 — Contact
+      </div>
+
+      <h2 class="section-title">
+        Let's connect.
+      </h2>
+
+      <p class="contact-text">
+        Interested in working together, collaborating,
+        or simply getting in touch? I'd be happy to hear
+        from you.
+      </p>
+
+      <!-- CHANGE YOUR EMAIL HERE -->
+      <a
+        href="mailto:your-email@example.com"
+        class="contact-btn"
+      >
+        Get In Touch →
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
+  <footer>
+
+    © 2026 Mark Jake Capeña · Built with intention.
+
+  </footer>
+
+
+  <!-- =========================
+       SCROLL ANIMATION
+  ========================= -->
+
+  <script>
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("show");
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.15
+      }
+    );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach((element) => {
+
+        observer.observe(element);
+
+      });
+
+  </script>
+
+
+</body>
+</html>
